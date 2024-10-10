@@ -1,0 +1,95 @@
+<div class="flex justify-between p-5">
+    <div class="w-1/3 p-4 bg-[#C9C4C6]">
+        <h3 class="text-center font-bold text-xl text-[#4b4b4b] mb-4">SERVICES</h3>
+        <div class="flex flex-wrap">
+            <div class="w-1/2 p-2 flex items-start">
+                <div class="flex flex-col">
+                    <p class="flex items-center">
+                        <i class="fas fa-truck text-[#4b4b4b] mr-2"></i>
+                        <span class="font-bold">FREE SHIPPING</span>
+                    </p>
+                    <p>Free shipping on orders over €100. Spain.</p>
+                </div>
+            </div>
+            <div class="w-1/2 p-2 flex items-start">
+                <div class="flex flex-col">
+                    <p class="flex items-center">
+                        <i class="fas fa-clock text-[#4b4b4b] mr-2"></i>
+                        <span class="font-bold">FAST SHIPPING</span>
+                    </p>
+                    <p>Orders are shipped from our warehouse within 1 to 2 business days.</p>
+                </div>
+            </div>
+            <div class="w-1/2 p-2 flex items-start">
+                <div class="flex flex-col">
+                    <p class="flex items-center">
+                        <i class="fas fa-undo text-[#4b4b4b] mr-2"></i>
+                        <span class="font-bold">FREE RETURNS</span>
+                    </p>
+                    <p>We have a 14-day free return policy.</p>
+                </div>
+            </div>
+            <div class="w-1/2 p-2 flex items-start">
+                <div class="flex flex-col">
+                    <p class="flex items-center">
+                        <i class="fas fa-envelope text-[#4b4b4b] mr-2"></i>
+                        <span class="font-bold">CONTACT US</span>
+                    </p>
+                    <p>Feel free to reach out with your questions at (34) 666 666 666.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="w-1/3 p-6 bg-[#252525] text-white ">
+        <h3 class="text-center font-bold text-lg mb-4">NEWSLETTER</h3>
+        <p class="mb-4">Subscribe to our newsletter to receive updates and exclusive discounts.</p>
+        
+        <form (ngSubmit)="onSubmit()" #newsletterForm="ngForm">
+            <div class="mb-4">
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring focus:ring-[#4b4b4b] bg-[#333333] text-white placeholder-gray-400"
+                    [(ngModel)]="email"
+                    (ngModelChange)="checkEmail()"
+                    name="email"
+                    (blur)="emailTouched = true"
+                    required
+                />
+                @if (!isEmailValid && emailTouched) {
+                    <div class="text-red-500 text-sm">
+                        Please enter a valid email address.
+                    </div>
+                }
+            </div>
+            <div class="flex items-center mb-4">
+                <input type="checkbox" id="terms" class="mr-2" [(ngModel)]="termsAccepted" name="terms" required />
+                <label for="terms" class="text-sm">I agree to the terms and conditions</label>
+            </div>
+            <button
+                type="submit"
+                class="w-full font-bold py-2 rounded focus:outline-none"
+                [disabled]="!termsAccepted || !isEmailValid"
+                [ngClass]="{
+                    'bg-[#4b4b4b] hover:bg-[#696969] text-white': termsAccepted && isEmailValid,
+                    'bg-gray-400 text-gray-600 cursor-not-allowed': !termsAccepted || !isEmailValid
+                }"
+            >
+                Subscribe
+            </button>
+        </form>
+    </div>
+    
+    <div class="w-1/3 p-6 bg-[#C9C4C6] rounded-lg shadow-lg">
+        <h3 class="text-center font-bold text-lg text-[#4b4b4b] mb-4">BLOG</h3>
+        <p class="text-[#333333] mb-4">Discover the Style That Defines the City. Exploring Urban Fashion on Our Blog.</p>
+        <div class="flex justify-center">
+            <button class="w-48 bg-[#4b4b4b] hover:bg-[#696969] text-white font-bold py-2 rounded transition duration-300"
+            routerLink="/blog">
+                Read
+            </button>
+        </div>
+    </div>
+       
+</div>

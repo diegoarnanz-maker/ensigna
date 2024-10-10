@@ -1,0 +1,82 @@
+<div class="p-5">
+    <h2 class="text-3xl font-bold text-center border-t-2 border-b-2 border-black p-5 mb-10">Work With Us</h2>
+    <div class="grid grid-cols-3 gap-0"> 
+        <div *ngFor="let image of images" class="relative perspective w-full h-64">
+            <div class="flipping-card relative w-full h-full transition-transform duration-300 ease-in-out">
+                <!-- Front -->
+                <div class="card front absolute inset-0 flex items-center justify-center backface-hidden">
+                    <img [src]="image.img" [alt]="image.alt" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70">
+                        <h3 class="text-white text-lg font-bold">{{ image.title }}</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Back -->
+                <div class="card back absolute inset-0 flex items-center justify-center bg-black text-white backface-hidden">
+                    <p class="text-center p-4">{{ image.text }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-md mx-auto p-5">
+        <h2 class="text-2xl font-bold text-center border-t-2 border-b-2 border-black p-5 mb-10 mt-10">Join Our Team</h2> 
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input formControlName="firstName" id="firstName" (blur)="form.get('firstName')?.markAsTouched()" required class="mt-1 block w-full border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-gray-600 focus:border-gray-600" />
+                    <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="text-red-600 text-sm">
+                        Please enter your first name.
+                    </div>
+                </div>
+                <div>
+                    <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input formControlName="lastName" id="lastName" (blur)="form.get('lastName')?.markAsTouched()" required class="mt-1 block w-full border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-gray-600 focus:border-gray-600" />
+                    <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched" class="text-red-600 text-sm">
+                        Please enter your last name.
+                    </div>
+                </div>
+                <div>
+                    <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile</label>
+                    <input formControlName="mobile" id="mobile" (blur)="form.get('mobile')?.markAsTouched()" required class="mt-1 block w-full border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-gray-600 focus:border-gray-600" />
+                    <div *ngIf="form.get('mobile')?.invalid && form.get('mobile')?.touched" class="text-red-600 text-sm">
+                        Please enter a valid mobile number (9 digits).
+                    </div>
+                </div>
+                <div>
+                    <label for="cv" class="block text-sm font-medium text-gray-700">Upload CV (Attachment)</label>
+                    <input type="file" formControlName="cv" id="cv" (blur)="form.get('cv')?.markAsTouched()" accept=".pdf,.doc,.docx" required class="mt-1 block w-full border border-gray-300 p-2 focus:outline-none focus:ring focus:ring-gray-600 focus:border-gray-600" />
+                    <div *ngIf="form.get('cv')?.invalid && form.get('cv')?.touched" class="text-red-600 text-sm">
+                        Please upload your CV.
+                    </div>
+                </div>
+            </div>
+
+            <button
+    type="submit"
+    class="mt-6 w-full font-bold py-2 hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-600 focus:ring-opacity-50"
+    [ngClass]="{
+        'bg-black text-white': !form.invalid,
+        'bg-gray-400 text-gray-600 cursor-not-allowed': form.invalid
+    }"
+    [disabled]="form.invalid"
+>
+    <span *ngIf="form.invalid" class="flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        Submit
+    </span>
+    <span *ngIf="!form.invalid" class="flex items-center justify-center">
+        Submit
+    </span>
+</button>
+
+
+        </form>
+    </div>
+</div>

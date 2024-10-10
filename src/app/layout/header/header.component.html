@@ -1,0 +1,16 @@
+<header class="fixed top-0 left-0 right-0 w-full h-20 px-2.5 py-5 border-b border-solid flex flex-row justify-between items-center bg-black z-50">
+    <div class="flex items-center justify-center cursor-pointer" routerLink="/">
+        <div class="w-15 h-15 bg-[#e0e0e0] rounded-full flex items-center justify-center">
+            <img src="../../../assets/images/logo.png" alt="logo img" class="h-16 object-contain rounded-full">
+        </div>
+        
+        <h1 class="text-white ml-8 text-4xl font-[logo-titulo]">ENSIGNA</h1>
+    </div>
+    <div>
+        <button class="bg-primary text-white px-5 py-2 rounded-md" [routerLink]="['/']" routerLinkActive="router-link-active">Home</button>
+        <button class="bg-primary text-white px-5 py-2 rounded-md" [routerLink]="['/products']" routerLinkActive="router-link-active">Products</button>
+        <button class="bg-primary text-white px-5 py-2 rounded-md" [routerLink]="['/blog']" routerLinkActive="router-link-active">Blog</button>
+        <button class="bg-primary text-white px-5 py-2 rounded-md" [routerLink]="['/work']" routerLinkActive="router-link-active">Careers</button>
+        <button class="bg-primary text-white px-5 py-2 rounded-md" [routerLink]="['/about-us']" routerLinkActive="router-link-active">About us</button>
+    </div>
+</header>

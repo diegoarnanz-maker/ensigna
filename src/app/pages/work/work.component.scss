@@ -1,0 +1,27 @@
+.perspective {
+    perspective: 1000px; 
+}
+
+.flipping-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; 
+    transition: transform 1.3s;
+}
+
+.flipping-card:hover {
+    transform: rotateY(180deg); 
+}
+
+.card {
+    backface-visibility: hidden; 
+}
+
+.front {
+    z-index: 2; 
+}
+
+.back {
+    transform: rotateY(180deg); 
+}

@@ -1,0 +1,35 @@
+@import './assets/styles/variables.scss';
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'logo-titulo';
+  src: url('assets/fonts/titulo.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/Roboto.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Estilo para cambiar el color del rating */
+.p-rating .p-rating-icon {
+  color: #464646; 
+}
+
+
+

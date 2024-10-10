@@ -1,0 +1,17 @@
+<div class="relative w-full h-0 overflow-hidden pb-[35%]">
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10"></div>
+    <iframe [src]="videoUrl"
+        class="absolute top-0 left-0 w-full h-full border-0 pointer-events-none"
+        allow="autoplay; loop; muted" 
+        allowfullscreen>
+    </iframe>
+    
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 z-20">
+        <h3 class="text-2xl font-bold p-4 rounded mb-2">Autumn Updates!</h3>
+        <h1 class="text-3xl font-semibold p-2 rounded mb-4">Express Yourself with <span class="font-bold text-4xl">ENSIGNA</span></h1>
+        <button class="bg-[#2e2e2e] text-white font-bold py-2 px-6 transition-all duration-300 hover:bg-gray-200 hover:shadow-lg hover:text-black"
+        [routerLink]="['/about-us']" routerLinkActive="router-link-active" >
+            About Us
+        </button>
+    </div>
+</div>
