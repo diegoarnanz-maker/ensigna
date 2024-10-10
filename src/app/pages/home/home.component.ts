@@ -30,7 +30,7 @@ export class HomeComponent {
 
   ngOnInit() {
     // Llamada a la API para obtener productos
-    this.loadProducts(1, 8);
+    this.loadProducts(1, 5);
     
     // Llamada a la API para obtener productos en oferta
     this.loadSales(1, 3);
